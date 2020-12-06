@@ -1,0 +1,11 @@
+.container {
+  max-width: 960px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+.carousel {
+  margin-bottom: 40px;
+}
