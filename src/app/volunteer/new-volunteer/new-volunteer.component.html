@@ -1,1 +1,123 @@
-<p>new-volunteer works!</p>
+<div class="container">
+  <mat-horizontal-stepper [linear]="!isLinear" #stepper>
+  <!-- <mat-horizontal-stepper #stepper> -->
+    <mat-step [stepControl]="nameFormGroup" errorMessage="Fields are required!">
+      <form [formGroup]="nameFormGroup">
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>First name</mat-label>
+          <input matInput type="text" placeholder="First name" formControlName="firstName" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Last name</mat-label>
+          <input matInput type="text" placeholder="Last name" formControlName="lastName" required>
+        </mat-form-field> <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Phone</mat-label>
+          <input matInput type="text" placeholder="Phone" formControlName="phone" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="Email" formControlName="email" required>
+        </mat-form-field><br>
+        <div>
+          <button mat-flat-button matStepperNext color="primary">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="addressFormGroup" errorMessage="Fields are required!">
+      <form [formGroup]="addressFormGroup">
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput type="text" placeholder="Address" formControlName="street" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>City</mat-label>
+          <input matInput type="text" placeholder="City" formControlName="city" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>State</mat-label>
+          <input matInput type="text" placeholder="State" formControlName="state" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Zip Code</mat-label>
+          <input matInput type="text" placeholder="Zip Code" formControlName="zipcode" required>
+        </mat-form-field>
+        <div>
+          <button mat-flat-button matStepperPrevious color="accent" style="margin-right: 10px;">Back</button>
+          <button mat-flat-button matStepperNext color="primary">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="companyFormGroup" errorMessage="Fields are required!">
+      <form [formGroup]="companyFormGroup">
+        <ng-template matStepLabel>Fill out your company</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Company </mat-label>
+          <input matInput type="text" placeholder="Company" formControlName="company" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>City</mat-label>
+          <input matInput type="text" placeholder="City" formControlName="city" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>State</mat-label>
+          <input matInput type="text" placeholder="State" formControlName="state" required>
+        </mat-form-field><br>
+        <div>
+          <button mat-flat-button matStepperPrevious color="accent" style="margin-right: 10px;">Back</button>
+          <button mat-flat-button matStepperNext color="primary">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="professionalFormGroup" errorMessage="Fields are required!">
+      <form [formGroup]="professionalFormGroup">
+        <ng-template matStepLabel>Fill out your job detail</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Job Title</mat-label>
+          <input matInput type="text" placeholder="Job Title" formControlName="jobTitle" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Industry</mat-label>
+          <input matInput type="text" placeholder="Industry" formControlName="industry" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Other Industries</mat-label>
+          <mat-select matInput formControlName="otherIndustries" required>
+            <mat-option value="IT">IT</mat-option>
+            <mat-option value="Health">Health</mat-option>
+            <mat-option value="Education">Education</mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Years of Ecperience</mat-label>
+          <input matInput type="number" placeholder="Years of Ecperience" formControlName="yearsOfExperience" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Languages</mat-label>
+          <mat-select matInput formControlName="languages" required>
+            <mat-option value="English">English</mat-option>
+            <mat-option value="Turkish">Turkish</mat-option>
+            <mat-option value="French">French</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-flat-button matStepperPrevious color="accent" style="margin-right: 10px;">Back</button>
+          <button mat-flat-button matStepperNext color="primary">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done. Please submit the form.</p>
+      <button mat-raised-button type="submit" color="primary" (click)="onSubmit()" style="width: 140px;"
+        [disabled]="nameFormGroup.invalid || addressFormGroup.invalid || companyFormGroup.invalid || professionalFormGroup.invalid">Submit</button><br><br>
+         <!-- <button mat-raised-button type="submit" color="primary" (click)="onSubmit()" style="width: 140px;">Submit</button><br><br> -->
+      <div>
+        <button mat-flat-button matStepperPrevious color="accent" style="margin-right: 10px;">Back</button>
+        <button mat-flat-button (click)="stepper.reset()" color="warn">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
