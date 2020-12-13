@@ -1,1 +1,150 @@
-<p>new-applicant works!</p>
+<div class="container">
+  <mat-horizontal-stepper [linear]="!isLinear" #stepper>
+    <mat-step [stepControl]="nameFormGroup">
+      <form [formGroup]="nameFormGroup">
+        <ng-template matStepLabel>Fill out your contact</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>First name</mat-label>
+          <input matInput type="text" placeholder="First name" formControlName="firstName" required>
+          <mat-error
+            *ngIf="nameFormGroup.get('firstName').hasError('required') && nameFormGroup.get('firstName').touched">
+            Required</mat-error>
+          <mat-error
+            *ngIf="!nameFormGroup.get('firstName').hasError('required') && nameFormGroup.get('firstName').touched">Must
+            be at least 2 characters</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Last name</mat-label>
+          <input matInput type="text" placeholder="Last name" formControlName="lastName" required>
+          <mat-error
+            *ngIf="nameFormGroup.get('lastName').hasError('required') && nameFormGroup.get('lastName').touched">Required
+          </mat-error>
+          <mat-error
+            *ngIf="!nameFormGroup.get('lastName').hasError('required') && nameFormGroup.get('lastName').touched">Must be
+            at least 2 characters</mat-error>
+        </mat-form-field> <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Phone</mat-label>
+          <input matInput type="text" placeholder="Phone" formControlName="phone" required>
+          <mat-error *ngIf="nameFormGroup.get('phone').hasError('required') && nameFormGroup.get('phone').touched">
+            Required</mat-error>
+          <mat-error *ngIf="!nameFormGroup.get('phone').hasError('required') && nameFormGroup.get('phone').touched">
+            Invalid phone</mat-error>
+
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="Email" formControlName="email" required>
+          <mat-error *ngIf="nameFormGroup.get('email').hasError('required') && nameFormGroup.get('email').touched">
+            Required</mat-error>
+          <mat-error *ngIf="!nameFormGroup.get('email').hasError('required') && nameFormGroup.get('email').touched">
+            Invalid email</mat-error>
+        </mat-form-field><br>
+        <div>
+          <button mat-flat-button matStepperNext color="primary">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="addressFormGroup">
+      <form [formGroup]="addressFormGroup">
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput type="text" placeholder="Address" formControlName="street" required>
+          <mat-error
+            *ngIf="addressFormGroup.get('street').hasError('required') && addressFormGroup.get('street').touched">
+            Required</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>City</mat-label>
+          <input matInput type="text" placeholder="City" formControlName="city" required>
+          <mat-error *ngIf="addressFormGroup.get('city').hasError('required') && addressFormGroup.get('city').touched">
+            Required</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>State</mat-label>
+          <input matInput type="text" placeholder="State" formControlName="state" required>
+          <mat-error
+            *ngIf="addressFormGroup.get('state').hasError('required') && addressFormGroup.get('state').touched">Required
+          </mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Zip Code</mat-label>
+          <input matInput type="text" placeholder="Zip Code" formControlName="zipcode" required>
+          <mat-error
+            *ngIf="addressFormGroup.get('zipcode').hasError('required') && addressFormGroup.get('zipcode').touched">
+            Required</mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-flat-button matStepperPrevious color="accent" style="margin-right: 10px;">Back</button>
+          <button mat-flat-button matStepperNext color="primary">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="professionalFormGroup">
+      <form [formGroup]="professionalFormGroup">
+        <ng-template matStepLabel>Fill out your job detail</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Areas of Interest</mat-label>
+          <mat-select matInput formControlName="category" required>
+            <mat-option value="IT">IT</mat-option>
+            <mat-option value="Health">Health</mat-option>
+            <mat-option value="Education">Education</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="professionalFormGroup.get('category').hasError('required') && professionalFormGroup.get('category').touched">
+            Required</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Age</mat-label>
+          <input matInput type="number" placeholder="Age" formControlName="age" required>
+          <mat-error
+            *ngIf="professionalFormGroup.get('age').hasError('required') && professionalFormGroup.get('age').touched">
+            Required</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Gender</mat-label>
+          <mat-select matInput formControlName="gender" required>
+            <mat-option value="MALE">Male</mat-option>
+            <mat-option value="FEMALE">Female</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="professionalFormGroup.get('gender').hasError('required') && professionalFormGroup.get('gender').touched">
+            Required</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Degree</mat-label>
+          <input matInput type="text" placeholder="Degree" formControlName="degree" required>
+          <mat-error
+            *ngIf="professionalFormGroup.get('degree').hasError('required') && professionalFormGroup.get('degree').touched">
+            Required</mat-error>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+          <mat-label>Languages</mat-label>
+          <mat-select matInput formControlName="languages" required>
+            <mat-option value="English">English</mat-option>
+            <mat-option value="Turkish">Turkish</mat-option>
+            <mat-option value="French">French</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="professionalFormGroup.get('languages').hasError('required') && professionalFormGroup.get('languages').touched">
+            Required</mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-flat-button matStepperPrevious color="accent" style="margin-right: 10px;">Back</button>
+          <button mat-flat-button matStepperNext color="primary">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done. Please submit the form.</p>
+      <button mat-raised-button type="submit" color="primary" (click)="onSubmit()" style="width: 140px;"
+        [disabled]="nameFormGroup.invalid || addressFormGroup.invalid || professionalFormGroup.invalid">Submit</button><br><br>
+      <div>
+        <button mat-flat-button matStepperPrevious color="accent" style="margin-right: 10px;">Back</button>
+        <button mat-flat-button (click)="stepper.reset()" color="warn">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

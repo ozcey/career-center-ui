@@ -1,4 +1,3 @@
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -8,10 +7,7 @@ import { VolunteerService } from '../volunteer.service';
 @Component({
   selector: 'app-new-volunteer',
   templateUrl: './new-volunteer.component.html',
-  styleUrls: ['./new-volunteer.component.css'],
-  providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
-  }]
+  styleUrls: ['./new-volunteer.component.css']
 })
 export class NewVolunteerComponent implements OnInit, OnDestroy {
   subscription =  new Subscription();
@@ -31,7 +27,7 @@ export class NewVolunteerComponent implements OnInit, OnDestroy {
     this.nameFormGroup = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       lastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-      phone: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       email: ['', [Validators.required, Validators.email]],
     });
     this.addressFormGroup = this.formBuilder.group({
@@ -51,9 +47,7 @@ export class NewVolunteerComponent implements OnInit, OnDestroy {
       otherIndustries: ['', Validators.required],
       yearsOfExperience: ['', Validators.required],
       languages: ['', Validators.required],
-
     });
-
   }
 
   onSubmit() {
@@ -105,14 +99,8 @@ export class NewVolunteerComponent implements OnInit, OnDestroy {
     this.nameFormGroup.reset();
     this.professionalFormGroup.reset();
     this.addressFormGroup.reset();
+    this.companyFormGroup.reset();
   }
-
-  // getErrorMessage(){
-  //   if (this.email.hasError('required')) {
-  //     return 'You must enter a value';
-  //   }
-
-  // }
 
   ngOnDestroy(): void {
    this.subscription.unsubscribe();
