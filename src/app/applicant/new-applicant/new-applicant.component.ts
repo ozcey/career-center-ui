@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { SnackbarService } from 'src/app/utility/snackbar.service';
-import { VolunteerService } from 'src/app/volunteer/volunteer.service';
+import { ApplicantService } from '../applicant.service';
 
 @Component({
   selector: 'app-new-applicant',
@@ -18,7 +18,7 @@ export class NewApplicantComponent implements OnInit, OnDestroy {
   professionalFormGroup: FormGroup;
 
   constructor(
-    private volunteerService: VolunteerService,
+    private applicantService: ApplicantService,
     private snackbar: SnackbarService,
     private formBuilder: FormBuilder
   ) { }
@@ -52,7 +52,7 @@ export class NewApplicantComponent implements OnInit, OnDestroy {
     category.push(this.professionalFormGroup.value.otherIndustries);
     languages.push(this.professionalFormGroup.value.languages);
 
-    const volunteer = {
+    const applicant = {
       firstName: this.nameFormGroup.value.firstName,
       lastName: this.nameFormGroup.value.lastName,
       phone: this.nameFormGroup.value.phone,
@@ -70,21 +70,16 @@ export class NewApplicantComponent implements OnInit, OnDestroy {
       }
     };
 
-    // const volunteerRequest = {
-    //   volunteer,
-    //   companies
-    // }
+    console.log(applicant);
 
-    // console.log(volunteerRequest);
+    this.subscription = this.applicantService.createVolunteer(applicant).subscribe(data => {
+      console.log(data);
+      this.snackbar.showSnackbar('Applicant created successfully!', null, 5000, 'bottom');
+    }, error => {
+      console.log(error.message);
+      this.snackbar.errorMessage();
+    });
 
-    // this.subscription = this.volunteerService.createVolunteer(volunteerRequest).subscribe(data => {
-    //   console.log(data);
-    //   this.snackbar.showSnackbar('Volunteer created successfully!', null, 5000, 'bottom');
-    // }, error => {
-    //   console.log(error.message);
-    //   this.snackbar.errorMessage();
-    // });
-    
     this.nameFormGroup.reset();
     this.professionalFormGroup.reset();
     this.addressFormGroup.reset();
