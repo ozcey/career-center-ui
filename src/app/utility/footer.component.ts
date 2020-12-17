@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-footer',
     template: `
-        <footer class="footer mt-auto py-3">
+        <footer class="footer">
             <div class="container">
                 <span class="text-muted">Career Center 2020</span>
             </div>
@@ -11,9 +11,9 @@ import { Component } from '@angular/core';
     `,
     styles: [`
         .footer {
-            position: fixed;
-            left: 0;
             bottom: 0;
+            height: 50px;
+            margin-top: 80px;
             width: 100%;
             background-color: #f1f1f1;
             color: white;
