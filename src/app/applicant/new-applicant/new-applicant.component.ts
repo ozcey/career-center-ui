@@ -12,12 +12,12 @@ import { ApplicantService } from '../applicant.service';
   styleUrls: ['./new-applicant.component.css']
 })
 export class NewApplicantComponent implements OnInit, OnDestroy {
-
   subscription = new Subscription();
   isLinear = false;
   nameFormGroup: FormGroup;
   addressFormGroup: FormGroup;
   professionalFormGroup: FormGroup;
+  isAuth = false;
 
   constructor(
     private authService: AuthService,
@@ -29,6 +29,13 @@ export class NewApplicantComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.subscription.add(this.authService.authChange.subscribe(auth => {
+      this.isAuth = auth;
+    }))
+   this.initForms();
+  }
+
+  initForms(){
     this.nameFormGroup = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       lastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
@@ -91,7 +98,7 @@ export class NewApplicantComponent implements OnInit, OnDestroy {
   }
 
   OnGoBack() {
-    this.router.navigate(['applicant']);
+    this.router.navigate(['applicant/list']);
   }
 
   ngOnDestroy(): void {

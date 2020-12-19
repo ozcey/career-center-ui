@@ -17,10 +17,10 @@ import { VolunteerComponent } from './volunteer/volunteer.component';
 const routes: Routes = [
     { path: '', component: HomeComponent },
     {
-        path: 'applicant', component: ApplicantComponent, canActivate: [AuthGuard], children: [
-            { path: '', component: ApplicantListComponent },
-            { path: ':id/edit', component: NewApplicantComponent, resolve: { applicantResolver: ApplicantResolverService } },
-            { path: 'new', component: NewApplicantComponent }
+        path: 'applicant', component: ApplicantComponent, children: [
+            { path: '', component: NewApplicantComponent },
+            { path: ':id/edit', component: NewApplicantComponent, canActivate: [AuthGuard], resolve: { applicantResolver: ApplicantResolverService } },
+            { path: 'list', canActivate: [AuthGuard], component: ApplicantListComponent }
         ]
     },
     { path: 'volunteer', component: VolunteerComponent },

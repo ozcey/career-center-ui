@@ -74,7 +74,7 @@ export class ApplicantListComponent implements OnInit, OnDestroy {
   }
 
   OnCreateApplicant() {
-    this.router.navigate(['new'], { relativeTo: this.route });
+    this.router.navigate(['applicant']);
   }
 
   onEdit(id: number) {

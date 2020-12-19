@@ -1,6 +1,6 @@
 <div class="container">
   <div class="heading">
-      <button class="back" color="accent" mat-stroked-button type="button" (click)="OnGoBack()">Back to list</button>
+      <button class="back" color="accent" mat-raised-button type="button" (click)="OnGoBack()" *ngIf="isAuth">Applicants List</button>
      <h4>Applicant Signup Form</h4>
     </div>
 
