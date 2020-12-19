@@ -18,9 +18,11 @@ import { VolunteerListComponent } from './volunteer/volunteer-list/volunteer-lis
 import { NotFoundComponent } from './utility/not-found.component';
 import { FooterComponent } from './utility/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { NewUserComponent } from './user/new-user/new-user.component';
 
 
 @NgModule({
@@ -39,12 +41,15 @@ import { MaterialModule } from './material.module';
     ApplicantListComponent,
     VolunteerListComponent,
     NotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    UserListComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule
