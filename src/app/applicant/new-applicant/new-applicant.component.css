@@ -1,3 +1,9 @@
 .field-width {
   width: 100%;
 }
+
+.back {
+  display: inline;
+  position: absolute;
+  right: 10px;
+}

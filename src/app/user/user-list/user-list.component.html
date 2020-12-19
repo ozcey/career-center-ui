@@ -50,8 +50,8 @@
 
   </table>
 
-  <mat-paginator [pageSize]="10" [pageSizeOptions]="[1, 5, 10, 20]" *ngIf="dataSource.data.length > 0">
-  </mat-paginator>
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[1, 5, 10, 20]">
+</mat-paginator>
   <div class="alert alert-info" role="alert" *ngIf="dataSource.data.length === 0">
     No records found.
   </div>

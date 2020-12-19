@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 import { SnackbarService } from 'src/app/utility/snackbar.service';
 import { ApplicantService } from '../applicant.service';
 
@@ -18,6 +20,9 @@ export class NewApplicantComponent implements OnInit, OnDestroy {
   professionalFormGroup: FormGroup;
 
   constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute,
     private applicantService: ApplicantService,
     private snackbar: SnackbarService,
     private formBuilder: FormBuilder
@@ -72,7 +77,7 @@ export class NewApplicantComponent implements OnInit, OnDestroy {
 
     console.log(applicant);
 
-    this.subscription = this.applicantService.createVolunteer(applicant).subscribe(data => {
+    this.subscription = this.applicantService.createApplicant(applicant).subscribe(data => {
       console.log(data);
       this.snackbar.showSnackbar('Applicant created successfully!', null, 5000, 'bottom');
     }, error => {
@@ -83,6 +88,10 @@ export class NewApplicantComponent implements OnInit, OnDestroy {
     this.nameFormGroup.reset();
     this.professionalFormGroup.reset();
     this.addressFormGroup.reset();
+  }
+
+  OnGoBack() {
+    this.router.navigate(['applicant']);
   }
 
   ngOnDestroy(): void {

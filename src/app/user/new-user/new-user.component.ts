@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -35,7 +35,7 @@ export class NewUserComponent implements OnInit, OnDestroy {
     this.initForm();
   }
 
-  initForm(){
+  initForm() {
     let name = '';
     let email = '';
     let username = '';
@@ -106,11 +106,11 @@ export class NewUserComponent implements OnInit, OnDestroy {
     this.userForm.reset();
   }
 
-  OnGoBack(){
+  OnGoBack() {
     this.router.navigate(['user']);
   }
 
-  ngOnDestroy() {   
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 

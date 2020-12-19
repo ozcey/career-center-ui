@@ -1,5 +1,9 @@
 <div class="container">
- <h4>Job Seekers Signup Form</h4>
+  <div class="heading">
+      <button class="back" color="accent" mat-stroked-button type="button" (click)="OnGoBack()">Back to list</button>
+     <h4>Applicant Signup Form</h4>
+    </div>
+
   <mat-horizontal-stepper [linear]="!isLinear" #stepper>
     <mat-step [stepControl]="nameFormGroup">
       <form [formGroup]="nameFormGroup">
