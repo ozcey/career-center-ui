@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material.module';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { NewUserComponent } from './user/new-user/new-user.component';
+import { UserModalComponent } from './user/user-modal.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { NewUserComponent } from './user/new-user/new-user.component';
     NotFoundComponent,
     FooterComponent,
     UserListComponent,
-    NewUserComponent
+    NewUserComponent,
+    UserModalComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ import { NewUserComponent } from './user/new-user/new-user.component';
     MaterialModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [UserModalComponent]
 })
 export class AppModule { }

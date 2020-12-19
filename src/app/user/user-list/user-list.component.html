@@ -1,16 +1,17 @@
 <div class="container">
   <div class="card">
-  <mat-card>
-<div class="sort">
-  <mat-form-field>
-    <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Search User">
-  </mat-form-field>
-  <button class="create" color="primary"  mat-raised-button type="button" (click)="OnCreateUser()">Create User</button>
-</div>
-  </mat-card>
-</div><br>
+    <mat-card>
+      <div class="sort">
+        <mat-form-field>
+          <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Search User">
+        </mat-form-field>
+        <button class="create" color="primary" mat-raised-button type="button" (click)="OnCreateUser()">Create
+          User</button>
+      </div>
+    </mat-card>
+  </div><br>
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort *ngIf="dataSource.data.length > 0">
 
     <ng-container matColumnDef="index">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>No. </th>
@@ -49,7 +50,10 @@
 
   </table>
 
-  <mat-paginator [pageSize]="10" [pageSizeOptions]="[1, 5, 10, 20]">
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[1, 5, 10, 20]" *ngIf="dataSource.data.length > 0">
   </mat-paginator>
+  <div class="alert alert-info" role="alert" *ngIf="dataSource.data.length === 0">
+    No records found.
   </div>
 
+</div>

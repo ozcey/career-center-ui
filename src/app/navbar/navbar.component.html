@@ -1,10 +1,12 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
   <h5 class="my-0 mr-md-auto font-weight-normal"><a routerLink="/" class="logo">Career Center</a></h5>
   <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" routerLink="/user" >User</a>
+    <a class="p-2 text-dark" routerLink="/user"  *ngIf="isAuth">User</a>
     <a class="p-2 text-dark" routerLink="/applicant" >Job Seekers</a>
     <a class="p-2 text-dark" routerLink="/volunteer" >Volunteer</a>
-    <a class="p-2 text-dark" routerLink="/login">Login</a>
+    <a class="p-2 text-dark" routerLink="/login" *ngIf="!isAuth">Login</a>
+     <a class="p-2 text-dark" routerLink="" *ngIf="isAuth" (click)="onLogout()">Logout</a>
   </nav>
-  <a class="btn btn-outline-primary" routerLink="/">Contact</a>
+  <a class="btn btn-outline-primary" routerLink="/" *ngIf="!isAuth">Contact</a>
+  <span class="p-2 text-dark" *ngIf="isAuth">Hi, <strong>{{username}}</strong></span>
 </div>

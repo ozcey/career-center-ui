@@ -4,15 +4,15 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"
       style="margin-top:20px;">
        <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input type="email"
+        <mat-label>Username</mat-label>
+        <input type="text"
         matInput
-        placeholder="Your Email"
-        formControlName="email"
+        placeholder="Your Username"
+        formControlName="username"
         required
         >
-        <mat-hint>Please enter a valid email</mat-hint>
-        <mat-error>Invalid or missing email!</mat-error>
+        <mat-hint>Please enter your username</mat-hint>
+        <mat-error>Invalid or missing username</mat-error>
      </mat-form-field>
        <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>

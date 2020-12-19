@@ -1,74 +1,101 @@
-<section class="signup">
-    <mat-card>
-      <mat-card-title style="text-align: center;">Sign Up</mat-card-title>
-      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-          <mat-form-field>
-              <input type="text"
-              matInput
-              placeholder="First Name"
-              ngModel
-              name="firstName"
-              required
-              minlength="2"
-              #fNameInput="ngModel"
-              >
-          <mat-error *ngIf="fNameInput.touched">Must be at least 2 charachters long.</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-              <input type="text"
-              matInput
-              placeholder="Last Name"
-              ngModel
-              name="lastName"
-              required
-              minlength="2"
-              #lNameInput="ngModel"
-              >
-          <mat-error *ngIf="lNameInput.touched">Must be at least 2 charachters long.</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <input type="text"
-            matInput
-            placeholder="User Name"
-            ngModel
-            name="username"
-            required
-            minlength="3"
-            #lNameInput="ngModel"
-            >
+<!-- <section class="signup">
+  <mat-card>
+      <div class="heading">
+ <button class="back" color="accent" mat-stroked-button type="button" (click)="OnGoBack()">Back to list</button>
+    <mat-card-title style="text-align: center;">Sign Up</mat-card-title>
+      </div>
+   
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Name" ngModel name="name" required minlength="2" #fNameInput="ngModel">
+        <mat-error *ngIf="fNameInput.touched">Must be at least 2 charachters long.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="User Name" ngModel name="username" required minlength="3"
+          #lNameInput="ngModel">
         <mat-error *ngIf="lNameInput.touched">Must be at least 3 charachters long.</mat-error>
-        </mat-form-field>
-          <mat-form-field>
-              <input type="email"
-              matInput
-              placeholder="Email"
-              ngModel
-              name="email"
-              email
-              required
-              #emailInput="ngModel"
-              >
-              <mat-error *ngIf="emailInput.hasError('required') && emailInput.touched">Field must not be empty!</mat-error>
-              <mat-error *ngIf="!emailInput.hasError('required') && emailInput.touched">Email is invalid!</mat-error>
-          </mat-form-field>
-          <mat-form-field hintLabel= "Should be at least 6 charachters long.">
-              <input type="password"
-              matInput
-              placeholder="Password"
-              ngModel
-              name="password"
-              required
-              minlength="6"
-              #pwInput="ngModel"
-              >
-          <mat-hint align="end">{{pwInput.value?.length}}/6</mat-hint>
-          <mat-error *ngIf="pwInput.touched">Must be 6 charachters long.</mat-error>
-          </mat-form-field>
-              <mat-checkbox ngModel name="agree" required color="primary">Agree to Terms and Conditions.</mat-checkbox>
-        <mat-card-actions>
-            <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
-            <mat-spinner *ngIf="isLoading"></mat-spinner>
-        </mat-card-actions>
-      </form>
-    </mat-card>
-  </section>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="email" matInput placeholder="Email" ngModel name="email" email required #emailInput="ngModel">
+        <mat-error *ngIf="emailInput.hasError('required') && emailInput.touched">Required</mat-error>
+        <mat-error *ngIf="!emailInput.hasError('required') && emailInput.touched">Email is invalid!</mat-error>
+      </mat-form-field>
+      <mat-form-field hintLabel="Should be at least 6 charachters long.">
+        <input type="password" matInput placeholder="Password" ngModel name="password" required minlength="6"
+          #pwInput="ngModel">
+        <mat-hint align="end">{{pwInput.value?.length}}/6</mat-hint>
+        <mat-error *ngIf="pwInput.touched">Must be 6 charachters long.</mat-error>
+      </mat-form-field><br>
+      <mat-form-field>
+        <mat-label>Roles</mat-label>
+        <mat-select matInput ngModel name="roles" required #roleInput="ngModel">
+          <mat-option value="ROLE_USER">USER</mat-option>
+          <mat-option value="ROLE_USER">ADMIN</mat-option>
+        </mat-select>
+        <mat-error *ngIf="roleInput.hasError('required') && roleInput.touched">Required</mat-error>
+      </mat-form-field>
+      <mat-checkbox ngModel name="agree" required color="primary">Agree to Terms and Conditions.</mat-checkbox>
+      <mat-card-actions>
+        <button *ngIf="!isLoading" type="submit" class="submit" mat-raised-button color="primary"
+          [disabled]="f.invalid">Submit</button>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</section> -->
+
+<section class="login">
+  <mat-card>
+   <div class="heading">
+ <button class="back" color="accent" mat-stroked-button type="button" (click)="OnGoBack()">Back to list</button>
+    <mat-card-title style="text-align: center;">{{isEdit ? 'Edit User':'Create User' }}</mat-card-title>
+   </div>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" placeholder="Name" formControlName="name" required>
+        <mat-error *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">
+          Required</mat-error>
+        <mat-error *ngIf="!userForm.get('name').hasError('required') && userForm.get('name').touched">Must
+          be at least 2 characters</mat-error>
+      </mat-form-field><br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" placeholder="Username" formControlName="username" required>
+        <mat-error *ngIf="userForm.get('username').hasError('required') && userForm.get('username').touched">
+          Required</mat-error>
+        <mat-error *ngIf="!userForm.get('username').hasError('required') && userForm.get('username').touched">Must
+          be at least 2 characters</mat-error>
+      </mat-form-field><br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Email" formControlName="email" required>
+        <mat-error *ngIf="userForm.get('email').hasError('required') && userForm.get('email').touched">
+          Required</mat-error>
+        <mat-error *ngIf="!userForm.get('email').hasError('required') && userForm.get('email').touched">
+          Invalid email</mat-error>
+      </mat-form-field><br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <mat-error *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched">
+          Required</mat-error>
+        <mat-error *ngIf="!userForm.get('password').hasError('required') && userForm.get('password').touched">
+          Must be at least 8 characters</mat-error>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Roles</mat-label>
+        <mat-select matInput formControlName="roles" required>
+          <mat-option value="ROLE_USER">USER</mat-option>
+          <mat-option value="ROLE_USER">ADMIN</mat-option>
+        </mat-select>
+        <mat-error *ngIf="userForm.get('roles').hasError('required') && userForm.get('roles').touched">
+          Required</mat-error>
+      </mat-form-field><br>
+      <button type="submit" class="submitButton" mat-raised-button color="primary">Login</button>
+    </form>
+  </mat-card>
+</section>

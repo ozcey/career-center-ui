@@ -3,21 +3,21 @@ import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { environment } from "src/environments/environment";
 import { User } from "./user.model";
-
 @Injectable({ providedIn: 'root' })
 export class UserService {
-    userChanged = new Subject<User[]>();
+    usersChanged = new Subject<User[]>();
     users: User[] = [];
+
     constructor(private http: HttpClient) { }
 
     findAllUsers() {
         const url = `${environment.userURL}`;
         this.http.get<User[]>(url, this.getHttpOptions()).subscribe(users => {
             this.users = users;
-            this.userChanged.next([...this.users]);
+            this.usersChanged.next([...this.users]);
         }, error => {
             console.log(error);
-            this.userChanged.next(null);
+            this.usersChanged.next(null);
         })
     }
 
@@ -66,7 +66,4 @@ export class UserService {
         };
         return httpOptions;
     }
-
-
-
 }

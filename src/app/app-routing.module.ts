@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ApplicantComponent } from './applicant/applicant.component';
+import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NewUserComponent } from './user/new-user/new-user.component';
 import { UserListComponent } from './user/user-list/user-list.component';
+import { UserResolverService } from './user/user-resolver.service';
 import { UserComponent } from './user/user.component';
 import { NotFoundComponent } from './utility/not-found.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
@@ -14,9 +16,9 @@ const routes: Routes = [
     { path: 'applicant', component: ApplicantComponent},
     { path: 'volunteer', component: VolunteerComponent },
     {
-        path: 'user', component: UserComponent, children: [
+        path: 'user', component: UserComponent, canActivate: [AuthGuard], children: [
             { path: '', component: UserListComponent },
-            // { path: ':id/edit', component: NewUserComponent },
+            { path: ':id/edit', component: NewUserComponent, resolve: {userResolver: UserResolverService} },
             { path: 'new', component: NewUserComponent }
         ]
     },
