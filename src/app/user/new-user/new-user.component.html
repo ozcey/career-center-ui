@@ -1,58 +1,65 @@
-<section class="login">
-  <mat-card>
-    <div class="heading">
+<section>
+  <div class="row">
+    <div class="col-25">
+      <button class="back" color="primary" mat-stroked-button type="button" routerLink="/">Go to home</button> <br><br>
       <button class="back" color="accent" mat-stroked-button type="button" (click)="OnGoBack()">Back to list</button>
-      <mat-card-title style="text-align: center;">{{isEdit ? 'Edit User':'Create User' }}</mat-card-title>
     </div>
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput type="text" placeholder="Name" formControlName="name" required>
-        <mat-error *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">
-          Required</mat-error>
-        <mat-error *ngIf="!userForm.get('name').hasError('required') && userForm.get('name').touched">Must
-          be at least 2 characters</mat-error>
-      </mat-form-field><br>
+    <div class="col-75">
+      <div class="login">
+        <mat-card>
+          <mat-card-title style="text-align: center;">{{isEdit ? 'Edit User':'Create User' }}</mat-card-title>
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill">
+              <mat-label>Name</mat-label>
+              <input matInput type="text" placeholder="Name" formControlName="name" required>
+              <mat-error *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">
+                Required</mat-error>
+              <mat-error *ngIf="!userForm.get('name').hasError('required') && userForm.get('name').touched">Must
+                be at least 2 characters</mat-error>
+            </mat-form-field><br>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Username</mat-label>
-        <input matInput type="text" placeholder="Username" formControlName="username" required>
-        <mat-error *ngIf="userForm.get('username').hasError('required') && userForm.get('username').touched">
-          Required</mat-error>
-        <mat-error *ngIf="!userForm.get('username').hasError('required') && userForm.get('username').touched">Must
-          be at least 2 characters</mat-error>
-      </mat-form-field><br>
+            <mat-form-field appearance="fill">
+              <mat-label>Username</mat-label>
+              <input matInput type="text" placeholder="Username" formControlName="username" required>
+              <mat-error *ngIf="userForm.get('username').hasError('required') && userForm.get('username').touched">
+                Required</mat-error>
+              <mat-error *ngIf="!userForm.get('username').hasError('required') && userForm.get('username').touched">Must
+                be at least 2 characters</mat-error>
+            </mat-form-field><br>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput type="email" placeholder="Email" formControlName="email" required>
-        <mat-error *ngIf="userForm.get('email').hasError('required') && userForm.get('email').touched">
-          Required</mat-error>
-        <mat-error *ngIf="!userForm.get('email').hasError('required') && userForm.get('email').touched">
-          Invalid email</mat-error>
-      </mat-form-field><br>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" placeholder="Password" formControlName="password" required>
-        <mat-error *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched">
-          Required</mat-error>
-        <mat-error *ngIf="!userForm.get('password').hasError('required') && userForm.get('password').touched">
-          Must be at least 8 characters</mat-error>
-      </mat-form-field><br>
-      <mat-form-field appearance="fill">
-        <mat-label>Roles</mat-label>
-        <mat-select matInput formControlName="roles" required>
-          <mat-option value="ROLE_USER">USER</mat-option>
-          <mat-option value="ROLE_USER">ADMIN</mat-option>
-        </mat-select>
-        <mat-error *ngIf="userForm.get('roles').hasError('required') && userForm.get('roles').touched">
-          Required</mat-error>
-      </mat-form-field><br>
-      <mat-card-actions>
-        <button *ngIf="!isLoading" type="submit" class="submitButton" mat-raised-button color="primary">Submit</button>
-        <mat-spinner *ngIf="isLoading"></mat-spinner>
-      </mat-card-actions>
-    </form>
-  </mat-card>
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" placeholder="Email" formControlName="email" required>
+              <mat-error *ngIf="userForm.get('email').hasError('required') && userForm.get('email').touched">
+                Required</mat-error>
+              <mat-error *ngIf="!userForm.get('email').hasError('required') && userForm.get('email').touched">
+                Invalid email</mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" placeholder="Password" formControlName="password" required>
+              <mat-error *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched">
+                Required</mat-error>
+              <mat-error *ngIf="!userForm.get('password').hasError('required') && userForm.get('password').touched">
+                Must be at least 8 characters</mat-error>
+            </mat-form-field><br>
+            <mat-form-field appearance="fill">
+              <mat-label>Roles</mat-label>
+              <mat-select matInput formControlName="roles" required>
+                <mat-option value="ROLE_USER">USER</mat-option>
+                <mat-option value="ROLE_USER">ADMIN</mat-option>
+              </mat-select>
+              <mat-error *ngIf="userForm.get('roles').hasError('required') && userForm.get('roles').touched">
+                Required</mat-error>
+            </mat-form-field><br>
+            <mat-card-actions>
+              <button *ngIf="!isLoading" type="submit" class="submitButton" mat-raised-button
+                color="primary">Submit</button>
+              <mat-spinner *ngIf="isLoading"></mat-spinner>
+            </mat-card-actions>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </section>
