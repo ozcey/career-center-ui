@@ -18,6 +18,8 @@ export class NewApplicantComponent implements OnInit, OnDestroy {
   addressFormGroup: FormGroup;
   professionalFormGroup: FormGroup;
   isAuth = false;
+  isSuccess = false;
+  error = false;
 
   constructor(
     private authService: AuthService,
@@ -86,10 +88,14 @@ export class NewApplicantComponent implements OnInit, OnDestroy {
 
     this.subscription = this.applicantService.createApplicant(applicant).subscribe(data => {
       console.log(data);
-      this.snackbar.showSnackbar('Applicant created successfully!', null, 5000, 'bottom');
+      // this.snackbar.showSnackbar('Applicant created successfully!', null, 5000, 'bottom');
+      this.error = false;
+      this.isSuccess = true;
     }, error => {
       console.log(error.message);
-      this.snackbar.errorMessage();
+      // this.snackbar.errorMessage();
+      this.error = true;
+      this.isSuccess = false;
     });
 
     this.nameFormGroup.reset();

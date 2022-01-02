@@ -6,6 +6,7 @@
        <mat-form-field appearance="outline">
         <mat-label>Username</mat-label>
         <input type="text"
+        id="username"
         matInput
         placeholder="Your Username"
         formControlName="username"
@@ -17,6 +18,7 @@
        <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
            <input type="password"
+           id="password"
            matInput
            [type] = "hide ? 'password':'text'"
            placeholder="Your password"
@@ -29,7 +31,7 @@
            <mat-hint>Please enter your password.</mat-hint>
            <mat-error>Missing password!</mat-error>
       </mat-form-field> <br>
-          <button type="submit" mat-raised-button color="primary">Login</button>
+          <button type="submit" id="submit" mat-raised-button color="primary">Login</button>
       </form>
     </mat-card>
   </section>

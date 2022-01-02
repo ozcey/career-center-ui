@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -18,6 +18,7 @@ export class NewUserComponent implements OnInit, OnDestroy {
   user: User = null;
   isEdit = false;
   userForm: FormGroup;
+  @ViewChild('userSubmitForm') userSubmitForm: NgForm;
 
   constructor(
     private authService: AuthService,
@@ -104,6 +105,7 @@ export class NewUserComponent implements OnInit, OnDestroy {
       }));
     }
     this.userForm.reset();
+    this.userSubmitForm.resetForm();
   }
 
   OnGoBack() {

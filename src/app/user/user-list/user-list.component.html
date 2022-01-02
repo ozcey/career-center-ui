@@ -3,9 +3,9 @@
     <mat-card>
       <div class="sort">
         <mat-form-field>
-          <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Search User">
+          <input matInput id="search" type="text" (keyup)="doFilter($event.target.value)" placeholder="Search User">
         </mat-form-field>
-        <button class="create" color="primary" mat-raised-button type="button" (click)="OnCreateUser()">Create
+        <button class="create" id="create_user" color="primary" mat-raised-button type="button" (click)="OnCreateUser()">Create
           User</button>
       </div>
     </mat-card>
