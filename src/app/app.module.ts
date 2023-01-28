@@ -24,6 +24,9 @@ import { MaterialModule } from './material.module';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { NewUserComponent } from './user/new-user/new-user.component';
 import { UserModalComponent } from './user/user-modal.component';
+import { ContactComponent } from './contact/contact.component';
+import { NewContactComponent } from './contact/new-contact/new-contact.component';
+import { ContactListComponent } from './contact/contact-list/contact-list.component';
 
 
 @NgModule({
@@ -45,7 +48,10 @@ import { UserModalComponent } from './user/user-modal.component';
     FooterComponent,
     UserListComponent,
     NewUserComponent,
-    UserModalComponent
+    UserModalComponent,
+    ContactComponent,
+    NewContactComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,9 @@ import { ApplicantComponent } from './applicant/applicant.component';
 import { NewApplicantComponent } from './applicant/new-applicant/new-applicant.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './auth/login/login.component';
+import { ContactListComponent } from './contact/contact-list/contact-list.component';
+import { ContactComponent } from './contact/contact.component';
+import { NewContactComponent } from './contact/new-contact/new-contact.component';
 import { HomeComponent } from './home/home.component';
 import { NewUserComponent } from './user/new-user/new-user.component';
 import { UserListComponent } from './user/user-list/user-list.component';
@@ -29,6 +32,12 @@ const routes: Routes = [
             { path: '', component: UserListComponent },
             { path: ':id/edit', component: NewUserComponent, resolve: {userResolver: UserResolverService} },
             { path: 'new', component: NewUserComponent }
+        ]
+    },
+    {
+        path: 'contact', component: ContactComponent, canActivate: [AuthGuard], children: [
+            { path: '', component: ContactListComponent },
+            { path: 'new', component: NewContactComponent }
         ]
     },
     { path: 'login', component: LoginComponent },

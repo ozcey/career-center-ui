@@ -5,15 +5,15 @@ import { Component } from '@angular/core';
     template: `
         <footer class="footer">
             <div class="container">
-                <span class="text-muted">Career Center 2020</span>
+                <span class="text-muted">Career Center 2022</span>
             </div>
         </footer>
     `,
     styles: [`
         .footer {
+            position: fixed;
             bottom: 0;
             height: 50px;
-            margin-top: 80px;
             width: 100%;
             background-color: #f1f1f1;
             color: white;

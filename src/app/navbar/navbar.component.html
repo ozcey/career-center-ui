@@ -4,9 +4,9 @@
     <a class="p-2 text-dark" routerLink="/user"  *ngIf="isAuth">User</a>
     <a class="p-2 text-dark" routerLink="/applicant" >Applicant</a>
     <a class="p-2 text-dark" routerLink="/volunteer" >Volunteer</a>
-    <a class="p-2 text-dark" routerLink="/login" *ngIf="!isAuth">Login</a>
-     <a class="p-2 text-dark" routerLink="" *ngIf="isAuth" (click)="onLogout()">Logout</a>
+    <a class="btn btn-outline-secondary" routerLink="/login" *ngIf="!isAuth">Login</a>
+     <a class="btn btn-outline-secondary" routerLink="" *ngIf="isAuth" (click)="onLogout()">Logout</a>
   </nav>
-  <a class="btn btn-outline-primary" routerLink="/" *ngIf="!isAuth">Contact</a>
+  <a class="btn btn-outline-primary" routerLink="/contact" >Contact</a>
   <span class="p-2 text-dark" *ngIf="isAuth">Hi, <strong>{{username}}</strong></span>
 </div>
