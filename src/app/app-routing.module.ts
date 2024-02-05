@@ -16,6 +16,8 @@ import { UserResolverService } from './user/user-resolver.service';
 import { UserComponent } from './user/user.component';
 import { NotFoundComponent } from './utility/not-found.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
+import { VolunteerHomeComponent } from './volunteer/volunteer-home/volunteer-home.component';
+import { VolunteerSignupComponent } from './volunteer/volunteer-signup/volunteer-signup.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -26,7 +28,11 @@ const routes: Routes = [
             { path: 'list', canActivate: [AuthGuard], component: ApplicantListComponent }
         ]
     },
-    { path: 'volunteer', component: VolunteerComponent },
+    { path: 'volunteer', component: VolunteerComponent, children: [
+        { path: '', component: VolunteerHomeComponent },
+        { path: 'signup', component: VolunteerSignupComponent },
+
+    ] },
     {
         path: 'user', component: UserComponent, canActivate: [AuthGuard], children: [
             { path: '', component: UserListComponent },

@@ -27,6 +27,8 @@ import { UserModalComponent } from './user/user-modal.component';
 import { ContactComponent } from './contact/contact.component';
 import { NewContactComponent } from './contact/new-contact/new-contact.component';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
+import { VolunteerHomeComponent } from './volunteer/volunteer-home/volunteer-home.component';
+import { VolunteerSignupComponent } from './volunteer/volunteer-signup/volunteer-signup.component';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { ContactListComponent } from './contact/contact-list/contact-list.compon
     UserModalComponent,
     ContactComponent,
     NewContactComponent,
-    ContactListComponent
+    ContactListComponent,
+    VolunteerHomeComponent,
+    VolunteerSignupComponent
   ],
   imports: [
     BrowserModule,
