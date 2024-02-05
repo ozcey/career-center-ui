@@ -1,0 +1,21 @@
+.example-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+
+}
+
+/* mat-grid-tile {
+   margin-right: 10px;
+   margin-bottom: 10px;
+} */
+
+.heading {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}

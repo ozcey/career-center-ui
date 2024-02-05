@@ -1,1 +1,61 @@
-<app-new-volunteer></app-new-volunteer>
+<!-- <app-new-volunteer></app-new-volunteer> -->
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-4">Volunteer</h1>
+    <p class="lead">Volunteers play a critical role in transforming job seekers’ lives by sharing their knowledge of
+      U.S. workplace culture
+      and expectations, industry insights, and lessons learned. As many as 85% of people in the U.S. find their jobs
+      through
+      networking, but many immigrants and refugees lack the relationships that help with navigating the job search
+      process.</p>
+    <hr class="my-4">
+    <p>Below are opportunities for important individual volunteering.
+      There’s nothing more rewarding than seeing job seekers gain confidence as they achieve their goals. Volunteers can
+      support immigrant and refugee job seekers in several ways:
+    </p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" routerLink="/volunteer" role="button">Sign up</a>
+    </p>
+  </div>
+</div>
+<!-- <div class="container">
+  <mat-grid-list cols="3" rowHeight="2:1">
+    <h3 class="heading">
+      Volunteering With Job Seekers
+      <small class="text-muted">| Opportunities</small>
+    </h3>
+    <div class="row">
+      <div class="col-sm-6" *ngFor="let opportunity of opportunities">
+        <div class="card-deck">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-header">Time-Commitment: {{opportunity.time_commitment}}</div>
+              <div class="card-body text-dark">
+                <h5 class="card-title">{{opportunity.name}}</h5>
+                <p class="card-text">{{opportunity.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+<div class="container">
+  <h3 class="heading">
+    Volunteering With Job Seekers
+    <small class="text-muted">| Opportunities</small>
+  </h3>
+  <div class="row row-cols-1 row-cols-md-2">
+    <div class="col mb-4  d-flex" *ngFor="let opportunity of opportunities">
+      <div class="card-group">
+        <div class="card flex-fill">
+          <div class="card-body">
+            <h5 class="card-title">{{opportunity.name}}</h5>
+            <p class="card-text">{{opportunity.description}}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Time-Commitment: <strong>{{opportunity.time_commitment}}</strong></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

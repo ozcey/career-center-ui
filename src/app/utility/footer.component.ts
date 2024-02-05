@@ -11,13 +11,13 @@ import { Component } from '@angular/core';
     `,
     styles: [`
         .footer {
-            position: fixed;
             bottom: 0;
             height: 50px;
             width: 100%;
             background-color: #f1f1f1;
             color: white;
             text-align: center;
+            margin-top: 20px;
 }
     `]
 })

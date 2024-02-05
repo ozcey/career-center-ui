@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   authURL: 'http://localhost:5000/career-center/api/auth',
-  userURL: 'http://localhost:5000/career-center/api/users',
+  userURL: 'http://localhost:5000/career-center/api/user',
   applicantURL: 'http://localhost:5000/career-center/api/applicant',
   volunteerURL: 'http://localhost:5000/career-center/api/volunteer'
 };

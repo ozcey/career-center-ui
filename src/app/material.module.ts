@@ -15,8 +15,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
-import {MatSortModule} from '@angular/material/sort';
+import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
     imports: [
@@ -37,7 +38,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         MatStepperModule,
         MatExpansionModule,
         MatAutocompleteModule,
-        MatRadioModule
+        MatRadioModule,
+        MatGridListModule
     ],
     exports: [
         MatButtonModule,
@@ -57,7 +59,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         MatStepperModule,
         MatExpansionModule,
         MatAutocompleteModule,
-        MatRadioModule
+        MatRadioModule,
+        MatGridListModule
     ]
 })
 export class MaterialModule { }
