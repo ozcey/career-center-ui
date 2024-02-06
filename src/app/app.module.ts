@@ -29,6 +29,7 @@ import { NewContactComponent } from './contact/new-contact/new-contact.component
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
 import { VolunteerHomeComponent } from './volunteer/volunteer-home/volunteer-home.component';
 import { VolunteerSignupComponent } from './volunteer/volunteer-signup/volunteer-signup.component';
+import { ApplicantHomeComponent } from './applicant/applicant-home/applicant-home.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { VolunteerSignupComponent } from './volunteer/volunteer-signup/volunteer
     NewContactComponent,
     ContactListComponent,
     VolunteerHomeComponent,
-    VolunteerSignupComponent
+    VolunteerSignupComponent,
+    ApplicantHomeComponent
   ],
   imports: [
     BrowserModule,

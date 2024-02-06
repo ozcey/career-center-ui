@@ -18,12 +18,14 @@ import { NotFoundComponent } from './utility/not-found.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { VolunteerHomeComponent } from './volunteer/volunteer-home/volunteer-home.component';
 import { VolunteerSignupComponent } from './volunteer/volunteer-signup/volunteer-signup.component';
+import { ApplicantHomeComponent } from './applicant/applicant-home/applicant-home.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     {
         path: 'applicant', component: ApplicantComponent, children: [
-            { path: '', component: NewApplicantComponent },
+            { path: '', component: ApplicantHomeComponent },
+            { path: 'new', component: NewApplicantComponent },
             { path: ':id/edit', component: NewApplicantComponent, canActivate: [AuthGuard], resolve: { applicantResolver: ApplicantResolverService } },
             { path: 'list', canActivate: [AuthGuard], component: ApplicantListComponent }
         ]

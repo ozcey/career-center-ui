@@ -7,6 +7,6 @@
     <a class="btn btn-outline-secondary" routerLink="/login" *ngIf="!isAuth">Login</a>
      <a class="btn btn-outline-secondary" routerLink="" *ngIf="isAuth" (click)="onLogout()">Logout</a>
   </nav>
-  <a class="btn btn-outline-primary" routerLink="/contact" >Contact</a>
+  <!-- <a class="btn btn-outline-primary" routerLink="/contact" >Contact</a> -->
   <span class="p-2 text-dark" *ngIf="isAuth">Hi, <strong>{{username}}</strong></span>
 </div>

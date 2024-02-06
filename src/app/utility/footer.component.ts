@@ -3,14 +3,15 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-footer',
     template: `
-        <footer class="footer">
+        <footer class="footer mt-auto py-3">
             <div class="container">
-                <span class="text-muted">Career Center 2022</span>
+                <span class="text-muted">Career Center {{currentYear}}</span>
             </div>
         </footer>
     `,
     styles: [`
         .footer {
+            position: fixed;
             bottom: 0;
             height: 50px;
             width: 100%;
@@ -21,4 +22,6 @@ import { Component } from '@angular/core';
 }
     `]
 })
-export class FooterComponent { }
+export class FooterComponent {
+    currentYear = new Date().getFullYear();
+ }

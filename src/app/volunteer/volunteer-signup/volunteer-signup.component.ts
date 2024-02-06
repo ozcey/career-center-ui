@@ -47,7 +47,7 @@ export class VolunteerSignupComponent implements OnInit {
       ]),
       jobTitle: new FormControl('', [Validators.required, Validators.minLength(3)]),
       industry: new FormControl('', [Validators.required, Validators.minLength(3)]),
-
+      areaOfInterest: new FormControl('', [Validators.required]),
     });
   }
 
@@ -62,7 +62,8 @@ export class VolunteerSignupComponent implements OnInit {
       email: this.userForm.value.email,
       phone: this.userForm.value.phone,
       jobTitle: this.userForm.value.jobTitle,
-      industry: this.userForm.value.industry
+      industry: this.userForm.value.industry,
+      areaOfInterest: this.userForm.value.areaOfInterest
     };
 
     console.log(user);

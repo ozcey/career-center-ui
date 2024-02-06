@@ -18,6 +18,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
     imports: [
@@ -39,7 +40,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
         MatExpansionModule,
         MatAutocompleteModule,
         MatRadioModule,
-        MatGridListModule
+        MatGridListModule,
+        MatTabsModule
     ],
     exports: [
         MatButtonModule,
@@ -60,7 +62,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
         MatExpansionModule,
         MatAutocompleteModule,
         MatRadioModule,
-        MatGridListModule
+        MatGridListModule,
+        MatTabsModule
     ]
 })
 export class MaterialModule { }

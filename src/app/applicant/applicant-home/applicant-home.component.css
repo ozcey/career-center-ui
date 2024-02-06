@@ -1,23 +1,4 @@
-mat-form-field {
-    width: 400px;
-    padding: 5px 20px;
-  }
-  
-  .signup {
-    margin-top: 30px;
-    margin-left: 35%;
-    width: 450px;
-  
-  }
-  
-  .submitButton {
-    width: 100%;
-    height: 40px;
-    ;
-  }
-  
-
-  .jumbotron {
+.jumbotron {
     padding-top: 3rem;
     padding-bottom: 3rem;
     margin-bottom: 0;
@@ -49,4 +30,13 @@ mat-form-field {
   
   footer p {
     margin-bottom: .25rem;
+  }
+  
+  .my-2{
+    margin-right: 5px;
+  }
+
+  .example-card {
+    max-width: 400px;
+    margin-bottom: 8px;
   }

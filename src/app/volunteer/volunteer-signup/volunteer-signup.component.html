@@ -25,7 +25,7 @@
   
               <mat-form-field appearance="fill">
                 <mat-label>Phone</mat-label>
-                <input matInput id="phone" type="text" placeholder="phone" formControlName="phone" required>
+                <input matInput id="phone" type="text" placeholder="Phone" formControlName="phone" required>
                 <mat-error *ngIf="userForm.get('phone').hasError('required') && userForm.get('phone').touched">
                   Required</mat-error>
                 <mat-error *ngIf="!userForm.get('phone').hasError('required') && userForm.get('phone').touched">Required</mat-error>
@@ -34,15 +34,23 @@
 
               <mat-form-field appearance="fill">
                 <mat-label>Job Title</mat-label>
-                <input matInput id="jobTitle" type="jobTitle" placeholder="jobTitle" formControlName="jobTitle" required>
+                <input matInput id="jobTitle" type="jobTitle" placeholder="Job Title" formControlName="jobTitle" required>
                 <mat-error *ngIf="userForm.get('jobTitle').hasError('required') && userForm.get('jobTitle').touched">
                   Required</mat-error>
               </mat-form-field><br>
 
               <mat-form-field appearance="fill">
                 <mat-label>Industry</mat-label>
-                <input matInput id="industry" type="industry" placeholder="industry" formControlName="industry" required>
+                <input matInput id="industry" type="industry" placeholder="Industry" formControlName="industry" required>
                 <mat-error *ngIf="userForm.get('industry').hasError('required') && userForm.get('industry').touched">
+                  Required</mat-error>
+              </mat-form-field><br>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Area of Interest</mat-label>
+                <input matInput id="areaOfInterest" type="areaOfInterest" placeholder="Area of Interest" formControlName="areaOfInterest" required>
+                <mat-hint align="end">Enter your area of interest as a volunteer</mat-hint>
+                <mat-error *ngIf="userForm.get('areaOfInterest').hasError('required') && userForm.get('areaOfInterest').touched">
                   Required</mat-error>
               </mat-form-field><br>
 
