@@ -11,7 +11,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { NewVolunteerComponent } from './volunteer/new-volunteer/new-volunteer.component';
+// import { NewVolunteerComponent } from './volunteer/new-volunteer/new-volunteer.component';
 import { NewApplicantComponent } from './applicant/new-applicant/new-applicant.component';
 import { ApplicantListComponent } from './applicant/applicant-list/applicant-list.component';
 import { VolunteerListComponent } from './volunteer/volunteer-list/volunteer-list.component';
@@ -43,7 +43,7 @@ import { ApplicantHomeComponent } from './applicant/applicant-home/applicant-hom
     LoginComponent,
     NavbarComponent,
     HomeComponent,
-    NewVolunteerComponent,
+    // NewVolunteerComponent,
     NewApplicantComponent,
     ApplicantListComponent,
     VolunteerListComponent,

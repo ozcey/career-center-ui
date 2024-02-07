@@ -11,6 +11,7 @@
     </p>
     <p>
       <a routerLink="/applicant/new" class="btn btn-primary my-2">Apply now</a>
+      <a *ngIf="isAuth" routerLink="/applicant/list" class="btn btn-secondary my-2">Display applicant list</a>
     </p>
   </div>
 </section>

@@ -13,6 +13,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./new-user.component.css']
 })
 export class NewUserComponent implements OnInit, OnDestroy {
+  alertType = '';
   subscription = new Subscription();
   isLoading = false;
   user: User = null;
@@ -84,11 +85,13 @@ export class NewUserComponent implements OnInit, OnDestroy {
       this.subscription.add(this.userService.updateUser(updatedUser).subscribe(data => {
         console.log(user);
         this.isLoading = false;
-        this.snack.showSnackbar('User updated successfully.', null, 4500, 'bottom');
+        this.alertType = "SUCCESS";
+        // this.snack.showSnackbar('User updated successfully.', null, 4500, 'bottom');
       }, error => {
         console.log(error.message);
         this.isLoading = false;
-        this.snack.errorMessage();
+        // this.snack.errorMessage();
+        this.alertType = "ERROR";
       }));
 
     } else {
@@ -97,11 +100,13 @@ export class NewUserComponent implements OnInit, OnDestroy {
       this.subscription.add(this.authService.signUp(user).subscribe(data => {
         console.log(user);
         this.isLoading = false;
-        this.snack.showSnackbar('User created successfully.', null, 4500, 'bottom');
+        // this.snack.showSnackbar('User created successfully.', null, 4500, 'bottom');
+        this.alertType = "SUCCESS";
       }, error => {
         console.log(error.message);
         this.isLoading = false;
-        this.snack.errorMessage();
+        // this.snack.errorMessage();
+        this.alertType = "ERROR";
       }));
     }
     this.userForm.reset();

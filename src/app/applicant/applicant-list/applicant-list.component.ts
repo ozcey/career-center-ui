@@ -73,7 +73,7 @@ export class ApplicantListComponent implements OnInit, OnDestroy {
     });
   }
 
-  OnCreateApplicant() {
+  OnGoBack() {
     this.router.navigate(['applicant']);
   }
 

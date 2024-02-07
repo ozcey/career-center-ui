@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-applicant-home',
   templateUrl: './applicant-home.component.html',
   styleUrls: ['./applicant-home.component.css']
 })
-export class ApplicantHomeComponent implements OnInit {
+export class ApplicantHomeComponent implements OnInit, OnDestroy {
   offerings = [
     {
       name: 'Employer Networking & Training Access',
@@ -24,9 +26,18 @@ export class ApplicantHomeComponent implements OnInit {
       description: 'Before you are matched with a career coach, we offer a 4.5-hour online course to give you a solid understanding of the U.S. job search process and the expectations of U.S. recruiters.'
     }
   ]
-  constructor() { }
+  subscription = new Subscription();
+  isAuth: any;
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.subscription.add(this.authService.authChange.subscribe(auth => {
+      this.isAuth = auth;
+    }))
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

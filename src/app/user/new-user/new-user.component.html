@@ -1,4 +1,16 @@
 <section>
+  <div *ngIf="alertType === 'SUCCESS'" class="alert alert-success alert-dismissible fade show" role="alert">
+    User created successfully
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div *ngIf="alertType === 'ERROR'" class="alert alert-danger alert-dismissible fade show" role="alert">
+    Something went wrong.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <div class="row">
     <div class="col-25">
       <button class="back" id="go_home" color="primary" mat-stroked-button type="button" routerLink="/">Go to home</button> <br><br>
