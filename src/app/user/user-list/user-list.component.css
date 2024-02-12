@@ -83,3 +83,11 @@ table {
   -webkit-hyphens: auto;
   hyphens: auto;
 }
+
+.jumbotron {
+  background-color: #fff;
+}
+
+.jumbotron h1 {
+  font-weight: 300;
+}

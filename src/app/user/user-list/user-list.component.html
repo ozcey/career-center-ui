@@ -1,3 +1,17 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="user_home_title">User Home</h1>
+    <p class="lead text-muted">
+      User play a critical role in transforming job seekers’ lives by sharing their knowledge of
+      U.S. workplace culture
+      and expectations, industry insights, and lessons learned.
+    </p>
+    <p>
+    </p>
+  </div>
+  <hr>
+</section>
+
 <div class="container">
   <div class="card">
     <mat-card>
@@ -50,7 +64,7 @@
 
   </table>
 
-  <mat-paginator [pageSize]="10" [pageSizeOptions]="[1, 5, 10, 20]">
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[1, 5, 10, 20]" *ngIf="dataSource.data.length > 0">
 </mat-paginator>
   <div class="alert alert-info" role="alert" *ngIf="dataSource.data.length === 0">
     No records found.

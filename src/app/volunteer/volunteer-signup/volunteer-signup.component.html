@@ -1,12 +1,12 @@
 <section class="signup">
   <div *ngIf="alertType === 'SUCCESS'" class="alert alert-success alert-dismissible fade show" role="alert">
-    Volunteer created successfully
+   <p id="successMessage">Volunteer created successfully.</p>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div *ngIf="alertType === 'ERROR'" class="alert alert-danger alert-dismissible fade show" role="alert">
-    Something went wrong.
+   <p id="errorMessage">Something went wrong.</p>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -67,8 +67,7 @@
               </mat-form-field><br>
 
               <mat-card-actions>
-                <button *ngIf="!isLoading" id="submit" type="submit" class="submitButton" mat-raised-button
-                  color="primary">Submit</button>
+                 <button *ngIf="!isLoading" type="submit" id="submitButton" class="btn btn-primary">Submit</button>
                 <mat-spinner *ngIf="isLoading"></mat-spinner>
               </mat-card-actions>
 

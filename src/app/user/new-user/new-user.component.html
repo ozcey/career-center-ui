@@ -65,8 +65,9 @@
                 Required</mat-error>
             </mat-form-field><br>
             <mat-card-actions>
-              <button *ngIf="!isLoading" id="submit" type="submit" class="submitButton" mat-raised-button
-                color="primary">Submit</button>
+              <button *ngIf="!isLoading" type="submit" id="submitButton" class="btn btn-primary">Submit</button>
+              <!-- <button *ngIf="!isLoading" id="submit" type="submit" class="submitButton" mat-raised-button
+                color="primary">Submit</button> -->
               <mat-spinner *ngIf="isLoading"></mat-spinner>
             </mat-card-actions>
           </form>

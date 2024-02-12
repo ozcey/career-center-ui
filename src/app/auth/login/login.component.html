@@ -1,6 +1,6 @@
 <section class="login">
     <mat-card>
-      <mat-card-title style="text-align: center;">Login to your account</mat-card-title>
+      <mat-card-title style="text-align: center;">Log in to your account</mat-card-title>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"
       style="margin-top:20px;">
        <mat-form-field appearance="outline">
@@ -31,7 +31,7 @@
            <mat-hint>Please enter your password.</mat-hint>
            <mat-error>Missing password!</mat-error>
       </mat-form-field> <br>
-          <button type="submit" id="submit" mat-raised-button color="primary">Login</button>
+          <button type="submit" id="submit" class="btn btn-primary">Login</button>
       </form>
     </mat-card>
   </section>
