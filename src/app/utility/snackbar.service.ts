@@ -7,7 +7,7 @@ export class SnackbarService {
   constructor(private snackbar: MatSnackBar ) {}
 
   showSnackbar(message, action, time, postion){
-    this.snackbar.open(message, action, {duration: time, verticalPosition: postion})
+    this.snackbar.open(message, action, {verticalPosition: postion})
   }
 
   errorMessage(){

@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   hide = true;
+  alertType = '';
+  subscription = new Subscription();
+  
 
   constructor(private authService: AuthService) { }
 
@@ -30,6 +34,18 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.value.password
     }
     this.authService.login(authUser);
+    this.subscription.add(
+      this.authService.authChange.subscribe(isAuth => {
+        if(!isAuth){
+          this.alertType = 'ERROR';
+        }
+      })
+    )
   }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
 
 }
