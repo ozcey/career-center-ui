@@ -2,12 +2,13 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const baseUrl = "http://localhost:5000/career-center/api";
 export const environment = {
   production: false,
-  authURL: 'http://localhost:5000/career-center/api/auth',
-  userURL: 'http://localhost:5000/career-center/api/user',
-  applicantURL: 'http://localhost:5000/career-center/api/applicant',
-  volunteerURL: 'http://localhost:5000/career-center/api/volunteer'
+  authURL: `${baseUrl}/auth`,
+  userURL: `${baseUrl}/user`,
+  applicantURL: `${baseUrl}/applicant`,
+  volunteerURL: `${baseUrl}/volunteer`
 };
 
 /*

@@ -2,9 +2,10 @@
   max-width: 90%;
 }
 
-.card-deck .card {
+/* .card {
   min-width: 220px;
-}
+  min-height: 220px;
+} */
 
 .carousel {
   margin-bottom: 40px;
