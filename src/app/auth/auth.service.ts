@@ -41,7 +41,7 @@ export class AuthService {
             this.isAuthenticated = true;
             this.router.navigate(['/user']);
         }, error => {
-            this.snackbar.showSnackbar('Please enter a valid email and password!', 'Close', 5000, 'bottom');
+            // this.snackbar.showSnackbar('Please enter a valid email and password!', 'Close', 5000, 'bottom');
             this.authChange.next(false);
             this.$username.next(null);
             this.isAuthenticated = false;
