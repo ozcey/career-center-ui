@@ -62,7 +62,7 @@ export class UserListComponent implements OnInit, OnDestroy {
         this.subscription.add(this.userService.deleteUser(id).subscribe(data => {
           const users = this.dataSource.data.filter(user => user.id !== id);
           this.dataSource.data = users;
-          this.snackbar.showSnackbar('User deleted successfully!', null, 5000, 'bottom');
+          this.snackbar.showSnackbar('User deleted successfully!', 'Close', 5000, 'bottom');
         }, error => {
           console.log(error);
           this.snackbar.errorMessage();
