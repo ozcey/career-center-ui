@@ -1,0 +1,69 @@
+<!-- src/app/course-list/course-list.component.html -->
+<div class="container mt-4">
+  <div>
+    <h1 id="course_title">Courses</h1>
+    <p class="lead text-muted">
+      Apply to Career Center today! Learn more about the tuition-free training we offer and apply to IT courses that will help launch your career in tech.
+    </p>
+  </div>
+  <br>
+  <hr>
+    <div class="row">
+      <!-- Filter Section -->
+      <div class="col-md-3">
+        <h5>Filter Courses</h5>
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Venue</label>
+            <div *ngFor="let venue of venues">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" [value]="venue" (change)="onCheckboxChange($event, 'venue')" [checked]="selectedVenues.includes(venue)">
+                <label class="form-check-label">{{ venue }}</label>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Category</label>
+            <div *ngFor="let category of categories">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" [value]="category" (change)="onCheckboxChange($event, 'category')" [checked]="selectedCategories.includes(category)">
+                <label class="form-check-label">{{ category }}</label>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Certification</label>
+            <div *ngFor="let certification of certifications">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" [value]="certification" (change)="onCheckboxChange($event, 'certification')" [checked]="selectedCertifications.includes(certification)">
+                <label class="form-check-label">{{ certification }}</label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+  
+      <!-- Courses Section -->
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let course of filteredCourses()">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">{{ course.name }}</h5>
+                <hr>
+                <p class="card-text">{{ course.description }}</p>
+                <p id="category"><strong>Category:</strong> {{ course.category.join(', ') }}</p>
+                <p id="certifications"><strong>Certifications:</strong> {{ course.certifications.join(', ') }}</p>
+                <p id="partners"><strong>Partners:</strong> {{ course.partners.join(', ') }}</p>
+                <p id="venues"><strong>Venues:</strong> {{ course.venues.join(', ') }}</p>
+                <p id="start_date"><strong>Start Date:</strong> {{ course.start_date }}</p>
+                <hr>
+                <button class="btn btn-primary" (click)="apply()">Apply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

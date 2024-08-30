@@ -2,6 +2,7 @@
   <h5 class="my-0 mr-md-auto font-weight-normal"><a routerLink="/" class="logo">Career Center</a></h5>
   <nav id="navbar" class="my-2 my-md-0 mr-md-3">
     <a id="user_page" class="p-2 text-dark" routerLink="/user"  *ngIf="isAuth">User</a>
+    <a id="applicant_page" class="p-2 text-dark" routerLink="/courses" >Courses</a>
     <a id="applicant_page" class="p-2 text-dark" routerLink="/applicant" >Applicant</a>
     <a id="volunteer_page" class="p-2 text-dark" routerLink="/volunteer" >Volunteer</a>
     <a id="login_page" class="btn btn-outline-primary" routerLink="/login" *ngIf="!isAuth">Login</a>
