@@ -1,0 +1,20 @@
+/* src/app/course-list/course-list.component.css */
+.container {
+    margin-top: 20px;
+  }
+  
+  h5 {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-check {
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-weight: 300;
+  }

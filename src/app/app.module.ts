@@ -30,6 +30,7 @@ import { ContactListComponent } from './contact/contact-list/contact-list.compon
 import { VolunteerHomeComponent } from './volunteer/volunteer-home/volunteer-home.component';
 import { VolunteerSignupComponent } from './volunteer/volunteer-signup/volunteer-signup.component';
 import { ApplicantHomeComponent } from './applicant/applicant-home/applicant-home.component';
+import { CourseListComponent } from './course-list/course-list.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ApplicantHomeComponent } from './applicant/applicant-home/applicant-hom
     ContactListComponent,
     VolunteerHomeComponent,
     VolunteerSignupComponent,
-    ApplicantHomeComponent
+    ApplicantHomeComponent,
+    CourseListComponent
   ],
   imports: [
     BrowserModule,

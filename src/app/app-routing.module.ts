@@ -19,6 +19,7 @@ import { VolunteerComponent } from './volunteer/volunteer.component';
 import { VolunteerHomeComponent } from './volunteer/volunteer-home/volunteer-home.component';
 import { VolunteerSignupComponent } from './volunteer/volunteer-signup/volunteer-signup.component';
 import { ApplicantHomeComponent } from './applicant/applicant-home/applicant-home.component';
+import { CourseListComponent } from './course-list/course-list.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -49,6 +50,7 @@ const routes: Routes = [
         ]
     },
     { path: 'login', component: LoginComponent },
+    { path: 'courses', component: CourseListComponent },
     { path: 'not-found', component: NotFoundComponent },
     { path: '**', redirectTo: '/not-found' }
 ];
